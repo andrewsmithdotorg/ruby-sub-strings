@@ -1,13 +1,14 @@
-dictionary = ['dog', 'man', 'toad', 'gone']
+dictionary = ['dog', 'man', 'toad', 'gone', 'and']
 
 def substrings (string, dictionary)
-    string.downcase!
+    lower_string = string.downcase
     words = {}
     dictionary.each do |x|
         words[x] = 0
-        while string.include? x
+        checker = lower_string.dup
+        while checker.include? x
             words[x] += 1
-            string.slice!(x).replace('')
+            checker.slice!(x).replace('')
         end
     end
     words.each do |key, value|
