@@ -5,8 +5,9 @@ def substrings (string, dictionary)
     words = {}
     dictionary.each do |x|
         words[x] = 0
-        if string.include? x
+        while string.include? x
             words[x] += 1
+            string.slice!(x).replace('')
         end
     end
     words.each do |key, value|
@@ -17,4 +18,4 @@ def substrings (string, dictionary)
     return words
 end
 
-puts substrings("Doggomancer", dictionary)
+puts substrings("Doggomancer will have its day, even if DOGS are about!  It's mandatory!", dictionary)
